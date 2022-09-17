@@ -13,7 +13,7 @@ local function load_options()
 		encoding = "utf-8",
 		viewoptions = "folds,cursor,curdir,slash,unix",
 		sessionoptions = "curdir,help,tabpages,winsize",
-		clipboard = "unnamedplus",
+		-- clipboard = "unnamedplus",
 		wildignorecase = true,
 		wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
 		backup = false,
@@ -101,19 +101,8 @@ local function load_options()
 		concealcursor = "niv",
 	}
 
-	if global.is_mac then
-		vim.g.clipboard = {
-			name = "macOS-clipboard",
-			copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
-			paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
-			cache_enabled = 0,
-		}
-		vim.g.python_host_prog = "/usr/bin/python"
-		vim.g.python3_host_prog = "/usr/local/bin/python3"
-	else
-		vim.g.python_host_prog = "/usr/bin/python"
-		vim.g.python3_host_prog = "/usr/bin/python3"
-	end
+	vim.g.python_host_prog = global.python_host_prog
+	vim.g.python3_host_prog = global.python3_host_prog
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end

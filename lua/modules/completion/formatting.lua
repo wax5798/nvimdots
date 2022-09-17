@@ -1,6 +1,6 @@
 local M = {}
 
-local home = os.getenv("HOME")
+local home = vim.fn.getenv("HOME")
 
 local disabled_worksapce_path = home .. "/.config/nvim/format_disabled_dirs.txt"
 local disabled_worksapce_file = io.open(disabled_worksapce_path, "r")

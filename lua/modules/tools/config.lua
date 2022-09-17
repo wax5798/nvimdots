@@ -20,6 +20,8 @@ function config.telescope()
 		end,
 	}
 
+	vim.g.sqlite_clib_path = vim.fn.stdpath("data") .. "/lib/sqlite3.dll"
+
 	require("telescope").setup({
 		defaults = {
 			initial_mode = "insert",
@@ -31,7 +33,7 @@ function config.telescope()
 			borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 			layout_strategy = "horizontal",
 			path_display = { "absolute" },
-			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
+			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip, tags" },
 			layout_config = {
 				prompt_position = "bottom",
 				horizontal = {

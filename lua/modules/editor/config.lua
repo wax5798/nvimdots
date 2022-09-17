@@ -358,7 +358,7 @@ function config.dap()
 
 	dap.adapters.python = {
 		type = "executable",
-		command = os.getenv("HOME") .. "/.local/share/nvim/dapinstall/python/bin/python",
+		command = vim.fn.getenv("HOME") .. "/.local/share/nvim/dapinstall/python/bin/python",
 		args = { "-m", "debugpy.adapter" },
 	}
 	dap.configurations.python = {

@@ -7,8 +7,8 @@ require("keymap.config")
 local plug_map = {
 	-- Bufferline
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
-	["n|<A-j>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
-	["n|<A-k>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
+	["n|<A-j>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
+	["n|<A-k>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	["n|<A-S-j>"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
 	["n|<A-S-k>"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
 	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
@@ -31,13 +31,11 @@ local plug_map = {
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	["n|<A-t>"] = map_cr("LSoutlineToggle"):with_noremap():with_silent(),
-	["n|g["] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
-	["n|g]"] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
+	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
+	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
-	["n|<C-Up>"] = map_cr("lua require('lspsaga.action').smart_scroll_with_saga(-1)"):with_noremap():with_silent(),
-	["n|<C-Down>"] = map_cr("lua require('lspsaga.action').smart_scroll_with_saga(1)"):with_noremap():with_silent(),
 	["n|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["v|<leader>ca"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
@@ -80,8 +78,8 @@ local plug_map = {
 	["n|<Leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
 	["n|<Leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
-	["n|<Leader>sc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
-	["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
+	["n|<Leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
+	-- ["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<Leader>fw"] = map_cu("Telescope live_grep"):with_noremap():with_silent(),
 	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
@@ -95,11 +93,12 @@ local plug_map = {
 	["n|T"] = map_cmd("v:lua.enhance_ft_move('T')"):with_expr(),
 	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
 	-- Plugin Hop
-	["n|<leader>w"] = map_cu("HopWord"):with_noremap(),
-	["n|<leader>j"] = map_cu("HopLine"):with_noremap(),
-	["n|<leader>k"] = map_cu("HopLine"):with_noremap(),
-	["n|<leader>c"] = map_cu("HopChar1"):with_noremap(),
-	["n|<leader>cc"] = map_cu("HopChar2"):with_noremap(),
+	["n|<space>w"] = map_cu("HopWordAC"):with_noremap(),
+	["n|<space>b"] = map_cu("HopWordBC"):with_noremap(),
+	["n|<space>j"] = map_cu("HopLineAC"):with_noremap(),
+	["n|<space>k"] = map_cu("HopLineBC"):with_noremap(),
+	["n|<space>c"] = map_cu("HopChar1"):with_noremap(),
+	["n|<space>cc"] = map_cu("HopChar2"):with_noremap(),
 	-- Plugin EasyAlign
 	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
 	["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
@@ -137,6 +136,9 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
+	-- nvim_comment
+	["n|<leader>c<space>"] = map_cr("CommentToggle"):with_silent():with_noremap(),
+	["v|<leader>c<space>"] = map_cr("CommentToggle"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)

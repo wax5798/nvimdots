@@ -67,7 +67,7 @@ local neovide_config = function()
 end
 
 local function check_conda()
-	local venv = os.getenv("CONDA_PREFIX")
+	local venv = vim.fn.getenv("CONDA_PREFIX")
 	if venv then
 		vim.g.python3_host_prog = venv .. "/bin/python"
 	end
