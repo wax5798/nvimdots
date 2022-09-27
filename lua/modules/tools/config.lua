@@ -33,7 +33,7 @@ function config.telescope()
 			borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 			layout_strategy = "horizontal",
 			path_display = { "absolute" },
-			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip, tags" },
+			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip", "tags" },
 			layout_config = {
 				prompt_position = "bottom",
 				horizontal = {

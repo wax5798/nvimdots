@@ -99,6 +99,7 @@ local function load_options()
 		signcolumn = "yes",
 		conceallevel = 0,
 		concealcursor = "niv",
+		tags = "tags",
 	}
 
 	vim.g.python_host_prog = global.python_host_prog

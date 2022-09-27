@@ -81,24 +81,39 @@ local plug_map = {
 	["n|<Leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
 	-- ["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<Leader>fw"] = map_cu("Telescope live_grep"):with_noremap():with_silent(),
+	["n|<Leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
 	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
-	-- Plugin vim-eft
-	["n|f"] = map_cmd("v:lua.enhance_ft_move('f')"):with_expr(),
-	["n|F"] = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
-	["n|t"] = map_cmd("v:lua.enhance_ft_move('t')"):with_expr(),
-	["n|T"] = map_cmd("v:lua.enhance_ft_move('T')"):with_expr(),
-	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
 	-- Plugin Hop
-	["n|<space>w"] = map_cu("HopWordAC"):with_noremap(),
-	["n|<space>b"] = map_cu("HopWordBC"):with_noremap(),
-	["n|<space>j"] = map_cu("HopLineAC"):with_noremap(),
-	["n|<space>k"] = map_cu("HopLineBC"):with_noremap(),
-	["n|<space>c"] = map_cu("HopChar1"):with_noremap(),
-	["n|<space>cc"] = map_cu("HopChar2"):with_noremap(),
+	["n|<space>w"] = map_cmd("<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["v|<space>w"] = map_cmd("<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["n|<space>b"] = map_cmd("<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["v|<space>b"] = map_cmd("<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["n|<space>j"] = map_cmd("<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["v|<space>j"] = map_cmd("<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["n|<space>k"] = map_cmd("<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["v|<space>k"] = map_cmd("<cmd>lua require'hop'.hint_lines({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR })<cr>")
+		:with_noremap()
+		:with_silent(),
+	["n|<space>f"] = map_cmd("<cmd>lua require'hop'.hint_char1()<cr>"):with_noremap():with_silent(),
+	["v|<space>f"] = map_cmd("<cmd>lua require'hop'.hint_char1()<cr>"):with_noremap():with_silent(),
 	-- Plugin EasyAlign
 	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
 	["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),

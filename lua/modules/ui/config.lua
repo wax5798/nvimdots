@@ -816,7 +816,9 @@ end
 function config.nvim_bufferline()
 	local opts = {
 		options = {
-			number = nil,
+			numbers = function(opts)
+				return string.format("%s·%s", opts.raise(opts.id), opts.lower(opts.ordinal))
+			end,
 			modified_icon = "✥",
 			buffer_close_icon = "",
 			left_trunc_marker = "",
