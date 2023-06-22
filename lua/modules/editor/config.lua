@@ -26,6 +26,15 @@ function config.nvim_treesitter()
 			"css",
 		},
 		highlight = { enable = true, disable = { "vim" } },
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = '<CR>',
+				node_incremental = '<CR>',
+				node_decremental = '<BS>',
+				scope_incremental = '<TAB>'
+			}
+		},
 		textobjects = {
 			select = {
 				enable = true,
@@ -62,14 +71,9 @@ function config.nvim_treesitter()
 			extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
 			max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
 		},
-		context_commentstring = { enable = true, enable_autocmd = false },
 		matchup = { enable = true },
 	})
 	require("nvim-treesitter.install").prefer_git = true
-	local parsers = require("nvim-treesitter.parsers").get_parser_configs()
-	for _, p in pairs(parsers) do
-		p.install_info.url = p.install_info.url:gsub("https://github.com/", "git@github.com:")
-	end
 end
 
 function config.illuminate()
@@ -106,11 +110,7 @@ function config.illuminate()
 end
 
 function config.nvim_comment()
-	require("nvim_comment").setup({
-		hook = function()
-			require("ts_context_commentstring.internal").update_commentstring()
-		end,
-	})
+	require("nvim_comment").setup()
 end
 
 function config.hop()
@@ -132,10 +132,6 @@ function config.autotag()
 			"vue",
 		},
 	})
-end
-
-function config.nvim_colorizer()
-	require("colorizer").setup()
 end
 
 function config.neoscroll()
@@ -387,24 +383,6 @@ function config.dap()
 	}
 end
 
-function config.specs()
-	require("specs").setup({
-		show_jumps = true,
-		min_jump = 10,
-		popup = {
-			delay_ms = 0, -- delay before popup displays
-			inc_ms = 10, -- time increments used for fade/resize effects
-			blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
-			width = 10,
-			winhl = "PMenu",
-			fader = require("specs").pulse_fader,
-			resizer = require("specs").shrink_resizer,
-		},
-		ignore_filetypes = {},
-		ignore_buftypes = { nofile = true },
-	})
-end
-
 function config.tabout()
 	require("tabout").setup({
 		tabkey = "<A-l>",
@@ -425,23 +403,6 @@ function config.tabout()
 	})
 end
 
-function config.imselect()
-	-- fcitx5 need a manual config
-	if vim.fn.executable("fcitx5-remote") == 1 then
-		vim.cmd([[
-		let g:im_select_get_im_cmd = ["fcitx5-remote"]
-		let g:im_select_default = '1'
-		let g:ImSelectSetImCmd = {
-			\ key ->
-			\ key == 1 ? ['fcitx5-remote', '-c'] :
-			\ key == 2 ? ['fcitx5-remote', '-o'] :
-			\ key == 0 ? ['fcitx5-remote', '-c'] :
-			\ execute("throw 'invalid im key'")
-			\ }
-			]])
-	end
-end
-
 function config.better_escape()
 	require("better_escape").setup({
 		mapping = { "jk", "jj" }, -- a table with mappings to use
@@ -452,18 +413,6 @@ function config.better_escape()
 		-- keys = function()
 		--   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
 		-- end,
-	})
-end
-
-function config.accelerated_jk()
-	require("accelerated-jk").setup({
-		mode = "time_driven",
-		enable_deceleration = false,
-		acceleration_motions = {},
-		acceleration_limit = 150,
-		acceleration_table = { 7, 12, 17, 21, 24, 26, 28, 30 },
-		-- when 'enable_deceleration = true', 'deceleration_table = { {200, 3}, {300, 7}, {450, 11}, {600, 15}, {750, 21}, {900, 9999} }'
-		deceleration_table = { { 150, 9999 } },
 	})
 end
 

@@ -6,10 +6,6 @@ completion["neovim/nvim-lspconfig"] = {
 	event = "BufReadPre",
 	config = conf.nvim_lsp,
 }
-completion["creativenull/efmls-configs-nvim"] = {
-	opt = false,
-	requires = "neovim/nvim-lspconfig",
-}
 completion["williamboman/mason.nvim"] = {
 	requires = {
 		{
@@ -45,6 +41,7 @@ completion["hrsh7th/nvim-cmp"] = {
 		-- },
 	},
 }
+--[[
 completion["L3MON4D3/LuaSnip"] = {
 	after = "nvim-cmp",
 	config = conf.luasnip,
@@ -55,5 +52,6 @@ completion["windwp/nvim-autopairs"] = {
 	config = conf.autopairs,
 }
 completion["github/copilot.vim"] = { opt = true, cmd = "Copilot" }
+--]]
 
 return completion

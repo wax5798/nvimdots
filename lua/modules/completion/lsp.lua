@@ -22,7 +22,7 @@ mason_lsp.setup({
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local function custom_attach(client, bufnr)
 	require("lsp_signature").on_attach({
@@ -223,30 +223,6 @@ nvim_lsp.html.setup({
 	on_attach = custom_attach,
 })
 
-local efmls = require("efmls-configs")
-
--- Init `efm-langserver` here.
-
-efmls.init({
-	on_attach = custom_attach,
-	capabilities = capabilities,
-	init_options = { documentFormatting = true, codeAction = true },
-})
-
--- Require `efmls-configs-nvim`'s config here
-
-local vint = require("efmls-configs.linters.vint")
-local eslint = require("efmls-configs.linters.eslint")
-local flake8 = require("efmls-configs.linters.flake8")
-local shellcheck = require("efmls-configs.linters.shellcheck")
-
-local black = require("efmls-configs.formatters.black")
-local luafmt = require("efmls-configs.formatters.stylua")
-local prettier = require("efmls-configs.formatters.prettier")
-local shfmt = require("efmls-configs.formatters.shfmt")
-
--- Add your own config for formatter and linter here
-
 -- local rustfmt = require("modules.completion.efm.formatters.rustfmt")
 local clangfmt = require("modules.completion.efm.formatters.clangfmt")
 
@@ -258,28 +234,6 @@ flake8 = vim.tbl_extend("force", flake8, {
 	lintIgnoreExitCode = true,
 	lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
 	lintCommand = "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
-})
-
--- Setup formatter and linter for efmls here
-
-efmls.setup({
-	vim = { formatter = vint },
-	lua = { formatter = luafmt },
-	c = { formatter = clangfmt },
-	cpp = { formatter = clangfmt },
-	python = { formatter = black },
-	vue = { formatter = prettier },
-	typescript = { formatter = prettier, linter = eslint },
-	javascript = { formatter = prettier, linter = eslint },
-	typescriptreact = { formatter = prettier, linter = eslint },
-	javascriptreact = { formatter = prettier, linter = eslint },
-	yaml = { formatter = prettier },
-	html = { formatter = prettier },
-	css = { formatter = prettier },
-	scss = { formatter = prettier },
-	sh = { formatter = shfmt, linter = shellcheck },
-	markdown = { formatter = prettier },
-	-- rust = {formatter = rustfmt},
 })
 
 formatting.configure_format_on_save()

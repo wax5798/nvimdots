@@ -13,6 +13,7 @@ ui["rcarriga/nvim-notify"] = {
 	opt = false,
 	config = conf.notify,
 }
+--[[
 ui["hoob3rt/lualine.nvim"] = {
 	opt = true,
 	after = { "nvim-navic" },
@@ -28,10 +29,12 @@ ui["goolord/alpha-nvim"] = {
 	event = "BufWinEnter",
 	config = conf.alpha,
 }
+--]]
 ui["kyazdani42/nvim-tree.lua"] = {
 	opt = true,
 	cmd = { "NvimTreeToggle" },
 	config = conf.nvim_tree,
+	tag = 'nightly'
 }
 ui["lewis6991/gitsigns.nvim"] = {
 	opt = true,
@@ -61,6 +64,7 @@ ui["mbbill/undotree"] = {
 }
 ui["j-hui/fidget.nvim"] = {
 	opt = true,
+	tag = "legacy",
 	event = "BufReadPost",
 	config = conf.fidget,
 }

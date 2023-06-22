@@ -1,6 +1,7 @@
 local lang = {}
 local conf = require("modules.lang.config")
 
+--[[
 lang["fatih/vim-go"] = {
 	opt = true,
 	ft = "go",
@@ -19,11 +20,13 @@ lang["simrat39/rust-tools.nvim"] = {
 --     ft = "org",
 --     config = conf.lang_org
 -- }
+lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
+--]]
 lang["iamcco/markdown-preview.nvim"] = {
 	opt = true,
 	ft = "markdown",
-	run = "cd app && yarn install",
+	run = function() vim.fn["mkdp#util#install"]() end
+	-- run = "cd app && yarn install",
 }
-lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
 
 return lang

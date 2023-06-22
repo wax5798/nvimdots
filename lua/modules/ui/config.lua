@@ -564,7 +564,6 @@ function config.lualine()
 			"quickfix",
 			"nvim-tree",
 			"toggleterm",
-			"fugitive",
 			outline,
 			dapui_scopes,
 			dapui_breakpoints,
@@ -636,17 +635,15 @@ function config.nvim_navic()
 end
 
 function config.nvim_tree()
+	vim.g.loaded_netrw = 1
+	vim.g.loaded_netrwPlugin = 1
 	require("nvim-tree").setup({
-		create_in_closed_folder = false,
 		respect_buf_cwd = true,
 		auto_reload_on_write = true,
 		disable_netrw = false,
 		hijack_cursor = true,
 		hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = false,
-		ignore_buffer_on_setup = false,
-		open_on_setup = false,
-		open_on_setup_file = false,
 		open_on_tab = false,
 		sort_by = "name",
 		update_cwd = true,
@@ -654,7 +651,6 @@ function config.nvim_tree()
 			adaptive_size = false,
 			centralize_selection = false,
 			width = 30,
-			height = 30,
 			side = "left",
 			preserve_window_proportions = false,
 			number = false,
@@ -739,7 +735,6 @@ function config.nvim_tree()
 			update_cwd = true,
 			ignore_list = {},
 		},
-		ignore_ft_on_setup = {},
 		filters = {
 			dotfiles = false,
 			custom = { ".DS_Store" },
@@ -758,7 +753,7 @@ function config.nvim_tree()
 					enable = true,
 					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 					exclude = {
-						filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+						filetype = { "notify", "packer", "qf", "diff", "fugitiveblame" },
 						buftype = { "nofile", "terminal", "help" },
 					},
 				},
@@ -968,7 +963,6 @@ function config.indent_blankline()
 			"dashboard",
 			"dotooagenda",
 			"log",
-			"fugitive",
 			"gitcommit",
 			"packer",
 			"vimwiki",

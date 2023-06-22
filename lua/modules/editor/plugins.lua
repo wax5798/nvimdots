@@ -25,14 +25,6 @@ editor["p00f/nvim-ts-rainbow"] = {
 	opt = true,
 	after = "nvim-treesitter",
 }
-editor["JoosepAlviste/nvim-ts-context-commentstring"] = {
-	opt = true,
-	after = "nvim-treesitter",
-}
-editor["mfussenegger/nvim-ts-hint-textobject"] = {
-	opt = true,
-	after = "nvim-treesitter",
-}
 editor["windwp/nvim-ts-autotag"] = {
 	opt = true,
 	after = "nvim-treesitter",
@@ -43,7 +35,6 @@ editor["andymass/vim-matchup"] = {
 	after = "nvim-treesitter",
 	config = conf.matchup,
 }
-editor["rainbowhxch/accelerated-jk.nvim"] = { opt = true, event = "BufWinEnter", config = conf.accelerated_jk }
 editor["romainl/vim-cool"] = {
 	opt = true,
 	event = { "CursorMoved", "InsertEnter" },
@@ -63,11 +54,6 @@ editor["akinsho/toggleterm.nvim"] = {
 	opt = true,
 	event = "UIEnter",
 	config = conf.toggleterm,
-}
-editor["norcalli/nvim-colorizer.lua"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.nvim_colorizer,
 }
 editor["rmagatti/auto-session"] = {
 	opt = true,
@@ -100,16 +86,11 @@ editor["rcarriga/nvim-dap-ui"] = {
 	after = "nvim-dap", -- Need to call setup after dap has been initialized.
 	config = conf.dapui,
 }
-editor["tpope/vim-fugitive"] = { opt = true, cmd = { "Git", "G" } }
 editor["famiu/bufdelete.nvim"] = {
 	opt = true,
 	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 }
-editor["edluffy/specs.nvim"] = {
-	opt = true,
-	event = "CursorMoved",
-	config = conf.specs,
-}
+--[[
 editor["abecodes/tabout.nvim"] = {
 	opt = true,
 	event = "InsertEnter",
@@ -117,14 +98,10 @@ editor["abecodes/tabout.nvim"] = {
 	after = "nvim-cmp",
 	config = conf.tabout,
 }
+--]]
 editor["sindrets/diffview.nvim"] = {
 	opt = true,
 	cmd = { "DiffviewOpen" },
-}
-editor["brglng/vim-im-select"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.imselect,
 }
 editor["luukvbaal/stabilize.nvim"] = {
 	opt = true,

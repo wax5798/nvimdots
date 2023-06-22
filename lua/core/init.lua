@@ -23,7 +23,7 @@ local createdir = function()
 end
 
 local disable_distribution_plugins = function()
-	vim.g.did_load_filetypes = 1
+	-- vim.g.did_load_filetypes = 1
 	vim.g.did_load_fzf = 1
 	vim.g.did_load_gtags = 1
 	vim.g.did_load_gzip = 1
@@ -53,7 +53,8 @@ local leader_map = function()
 end
 
 local neovide_config = function()
-	vim.cmd([[set guifont=JetBrainsMono\ Nerd\ Font:h15]])
+	-- vim.cmd([[set guifont=JetBrainsMono\ Nerd\ Font:h11]])
+	-- vim.cmd([[:GuiFont! JetBrainsMono\ Nerd\ Font:h11]])
 	vim.g.neovide_refresh_rate = 120
 	vim.g.neovide_cursor_vfx_mode = "railgun"
 	vim.g.neovide_no_idle = true
