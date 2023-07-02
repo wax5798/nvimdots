@@ -1,5 +1,3 @@
-local formatting = require("modules.completion.formatting")
-
 vim.cmd([[packadd lsp_signature.nvim]])
 vim.cmd([[packadd lspsaga.nvim]])
 vim.cmd([[packadd cmp-nvim-lsp]])
@@ -12,17 +10,14 @@ local mason_lsp = require("mason-lspconfig")
 mason.setup()
 mason_lsp.setup({
 	ensure_installed = {
-		"bash-language-server",
-		"efm",
-		"lua-language-server",
+		"bashls",
 		"clangd",
-		"gopls",
 		"pyright",
+		"cmake",
 	},
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local function custom_attach(client, bufnr)
 	require("lsp_signature").on_attach({
@@ -64,25 +59,7 @@ end
 -- Override server settings here
 
 for _, server in ipairs(mason_lsp.get_installed_servers()) do
-	if server == "gopls" then
-		nvim_lsp.gopls.setup({
-			on_attach = custom_attach,
-			flags = { debounce_text_changes = 500 },
-			capabilities = capabilities,
-			cmd = { "gopls", "-remote=auto" },
-			settings = {
-				gopls = {
-					usePlaceholders = true,
-					analyses = {
-						nilness = true,
-						shadow = true,
-						unusedparams = true,
-						unusewrites = true,
-					},
-				},
-			},
-		})
-	elseif server == "sumneko_lua" then
+	if server == "sumneko_lua" then
 		nvim_lsp.sumneko_lua.setup({
 			capabilities = capabilities,
 			on_attach = custom_attach,
@@ -111,15 +88,18 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 			cmd = {
 				"clangd",
 				"--background-index",
-				"--pch-storage=memory",
+				-- "--pch-storage=memory",
 				-- You MUST set this arg ↓ to your clangd executable location (if not included)!
-				"--query-driver=/usr/bin/clang++,/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+				-- "--query-driver=/usr/bin/clang++,/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+				"--query-driver=C:\\MinGW\\bin\\gcc.exe,C:\\MinGW\\bin\\g++.exe",
+				"-j=12",
 				"--clang-tidy",
+				"--clang-tidy-checks=performance-*,bugprone-*",
 				"--all-scopes-completion",
-				"--cross-file-rename",
 				"--completion-style=detailed",
 				"--header-insertion-decorators",
 				"--header-insertion=iwyu",
+				-- "--cross-file-rename",
 			},
 			commands = {
 				ClangdSwitchSourceHeader = {
@@ -141,6 +121,7 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 					description = "Open source/header in a new split",
 				},
 			},
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 		})
 	elseif server == "jsonls" then
 		nvim_lsp.jsonls.setup({
@@ -158,14 +139,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 						{
 							fileMatch = { "tsconfig*.json" },
 							url = "https://json.schemastore.org/tsconfig.json",
-						},
-						{
-							fileMatch = {
-								".prettierrc",
-								".prettierrc.json",
-								"prettier.config.json",
-							},
-							url = "https://json.schemastore.org/prettierrc.json",
 						},
 						{
 							fileMatch = { ".eslintrc", ".eslintrc.json" },
@@ -223,17 +196,3 @@ nvim_lsp.html.setup({
 	on_attach = custom_attach,
 })
 
--- local rustfmt = require("modules.completion.efm.formatters.rustfmt")
-local clangfmt = require("modules.completion.efm.formatters.clangfmt")
-
--- Override default config here
-
-flake8 = vim.tbl_extend("force", flake8, {
-	prefix = "flake8: max-line-length=160, ignore F403 and F405",
-	lintStdin = true,
-	lintIgnoreExitCode = true,
-	lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
-	lintCommand = "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
-})
-
-formatting.configure_format_on_save()

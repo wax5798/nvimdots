@@ -24,6 +24,8 @@ function config.nvim_treesitter()
 			"typescript",
 			"vue",
 			"css",
+			"markdown",
+			"markdown_inline",
 		},
 		highlight = { enable = true, disable = { "vim" } },
 		incremental_selection = {

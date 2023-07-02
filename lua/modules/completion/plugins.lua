@@ -11,11 +11,17 @@ completion["williamboman/mason.nvim"] = {
 		{
 			"williamboman/mason-lspconfig.nvim",
 		},
-		{ "WhoIsSethDaniel/mason-tool-installer.nvim", config = conf.mason_install },
 	},
 }
-completion["glepnir/lspsaga.nvim"] = {
-	opt = true,
+completion["nvimdev/lspsaga.nvim"] = {
+    opt = true,
+    tag = "v0.2.9",
+    event = "LspAttach",
+    requires = {
+        {"nvim-tree/nvim-web-devicons"},
+        --make sure you install markdown and markdown_inline parser
+        {"nvim-treesitter/nvim-treesitter"}
+    },
 	after = "nvim-lspconfig",
 	config = conf.lspsaga,
 }
@@ -41,7 +47,6 @@ completion["hrsh7th/nvim-cmp"] = {
 		-- },
 	},
 }
---[[
 completion["L3MON4D3/LuaSnip"] = {
 	after = "nvim-cmp",
 	config = conf.luasnip,
@@ -52,6 +57,18 @@ completion["windwp/nvim-autopairs"] = {
 	config = conf.autopairs,
 }
 completion["github/copilot.vim"] = { opt = true, cmd = "Copilot" }
+
+--[[
+completion["hrsh7th/nvim-cmp"] = {
+	config = conf.cmp,
+	requires = {
+		{ "lukas-reineke/cmp-under-comparator" },
+		-- { "hrsh7th/cmp-nvim-lsp"},
+		{ "hrsh7th/cmp-buffer" },
+		{ "hrsh7th/cmp-path" },
+	},
+}
 --]]
+
 
 return completion

@@ -13,7 +13,6 @@ ui["rcarriga/nvim-notify"] = {
 	opt = false,
 	config = conf.notify,
 }
---[[
 ui["hoob3rt/lualine.nvim"] = {
 	opt = true,
 	after = { "nvim-navic" },
@@ -29,7 +28,6 @@ ui["goolord/alpha-nvim"] = {
 	event = "BufWinEnter",
 	config = conf.alpha,
 }
---]]
 ui["kyazdani42/nvim-tree.lua"] = {
 	opt = true,
 	cmd = { "NvimTreeToggle" },
@@ -40,6 +38,7 @@ ui["lewis6991/gitsigns.nvim"] = {
 	opt = true,
 	event = { "BufReadPost", "BufNewFile" },
 	config = conf.gitsigns,
+	tag = "v0.6",
 	requires = { "nvim-lua/plenary.nvim", opt = true },
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
