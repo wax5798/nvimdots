@@ -38,8 +38,8 @@ local plug_map = {
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
 	["n|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["v|<leader>ca"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
-	["n|gd"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
-	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
+	["n|gt"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
+	["n|gT"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga lsp_finder"):with_noremap():with_silent(),
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
@@ -79,11 +79,11 @@ local plug_map = {
 	["n|<Leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
 	["n|<Leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
-	-- ["n|<Leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<Leader>fw"] = map_cu("Telescope live_grep"):with_noremap():with_silent(),
 	["n|<Leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
 	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
+	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
 	-- Plugin Hop
 	["n|<space>w"] = map_cmd("<cmd>lua require'hop'.hint_words({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR })<cr>")
 		:with_noremap()
