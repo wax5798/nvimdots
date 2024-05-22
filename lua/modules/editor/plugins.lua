@@ -1,71 +1,71 @@
 local editor = {}
 local conf = require("modules.editor.config")
 
-editor["junegunn/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
-editor["RRethy/vim-illuminate"] = {
+editor["wax5798/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
+editor["wax5798/vim-illuminate"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = conf.illuminate,
 }
-editor["terrortylor/nvim-comment"] = {
+editor["wax5798/nvim-comment"] = {
 	opt = false,
 	config = conf.nvim_comment,
 }
-editor["nvim-treesitter/nvim-treesitter"] = {
+editor["wax5798/nvim-treesitter"] = {
 	opt = true,
 	run = ":TSUpdate",
 	event = "BufReadPost",
 	config = conf.nvim_treesitter,
 }
-editor["nvim-treesitter/nvim-treesitter-textobjects"] = {
+editor["wax5798/nvim-treesitter-textobjects"] = {
 	opt = true,
 	after = "nvim-treesitter",
 }
-editor["p00f/nvim-ts-rainbow"] = {
+editor["wax5798/nvim-ts-rainbow"] = {
 	opt = true,
 	after = "nvim-treesitter",
 }
-editor["windwp/nvim-ts-autotag"] = {
+editor["wax5798/nvim-ts-autotag"] = {
 	opt = true,
 	after = "nvim-treesitter",
 	config = conf.autotag,
 }
-editor["andymass/vim-matchup"] = {
+editor["wax5798/vim-matchup"] = {
 	opt = true,
 	after = "nvim-treesitter",
 	config = conf.matchup,
 }
-editor["romainl/vim-cool"] = {
+editor["wax5798/vim-cool"] = {
 	opt = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
-editor["phaazon/hop.nvim"] = {
+editor["wax5798/hop.nvim"] = {
 	opt = true,
 	branch = "v2",
 	event = "BufReadPost",
 	config = conf.hop,
 }
-editor["karb94/neoscroll.nvim"] = {
+editor["wax5798/neoscroll.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = conf.neoscroll,
 }
-editor["akinsho/toggleterm.nvim"] = {
+editor["wax5798/toggleterm.nvim"] = {
 	opt = true,
 	event = "UIEnter",
 	config = conf.toggleterm,
 }
-editor["rmagatti/auto-session"] = {
+editor["wax5798/auto-session"] = {
 	opt = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 	config = conf.auto_session,
 }
-editor["max397574/better-escape.nvim"] = {
+editor["wax5798/better-escape.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = conf.better_escape,
 }
-editor["mfussenegger/nvim-dap"] = {
+editor["wax5798/nvim-dap"] = {
 	opt = true,
 	cmd = {
 		"DapSetLogLevel",
@@ -81,17 +81,17 @@ editor["mfussenegger/nvim-dap"] = {
 	module = "dap",
 	config = conf.dap,
 }
-editor["rcarriga/nvim-dap-ui"] = {
+editor["wax5798/nvim-dap-ui"] = {
 	opt = true,
 	after = "nvim-dap", -- Need to call setup after dap has been initialized.
 	config = conf.dapui,
 }
-editor["famiu/bufdelete.nvim"] = {
+editor["wax5798/bufdelete.nvim"] = {
 	opt = true,
 	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
 }
 --[[
-editor["abecodes/tabout.nvim"] = {
+editor["wax5798/tabout.nvim"] = {
 	opt = true,
 	event = "InsertEnter",
 	wants = "nvim-treesitter",
@@ -99,11 +99,11 @@ editor["abecodes/tabout.nvim"] = {
 	config = conf.tabout,
 }
 --]]
-editor["sindrets/diffview.nvim"] = {
+editor["wax5798/diffview.nvim"] = {
 	opt = true,
 	cmd = { "DiffviewOpen" },
 }
-editor["luukvbaal/stabilize.nvim"] = {
+editor["wax5798/stabilize.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
 }

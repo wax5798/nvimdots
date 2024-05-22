@@ -22,7 +22,7 @@ lang["simrat39/rust-tools.nvim"] = {
 -- }
 lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
 --]]
-lang["iamcco/markdown-preview.nvim"] = {
+lang["wax5798/markdown-preview.nvim"] = {
 	opt = true,
 	ft = "markdown",
 	run = function() vim.fn["mkdp#util#install"]() end

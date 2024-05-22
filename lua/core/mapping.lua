@@ -12,6 +12,10 @@ local def_map = {
 	["n|]b"] = map_cr("bnext"):with_noremap():with_silent(),
 	["n|[B"] = map_cr("bfirst"):with_noremap():with_silent(),
 	["n|]B"] = map_cr("blast"):with_noremap():with_silent(),
+	["n|[c"] = map_cr("cprevious"):with_noremap():with_silent(),
+	["n|]c"] = map_cr("cnext"):with_noremap():with_silent(),
+	["n|[C"] = map_cr("cfirst"):with_noremap():with_silent(),
+	["n|]C"] = map_cr("clast"):with_noremap():with_silent(),
 	["n|Y"] = map_cmd("y$"),
 	["n|D"] = map_cmd("d$"),
 	["n|n"] = map_cmd("nzzzv"):with_noremap(),
@@ -40,6 +44,7 @@ local def_map = {
 	["i|<C-f>"] = map_cmd("<Right>"):with_noremap(),
 	["i|<C-a>"] = map_cmd("<ESC>I"):with_noremap(),
 	["i|<C-e>"] = map_cmd("<ESC>A"):with_noremap(),
+	["i|<C-S-V>"] = map_cmd("<C-r>+"):with_noremap(),
 	-- command line
 	["c|<C-b>"] = map_cmd("<Left>"):with_noremap(),
 	["c|<C-f>"] = map_cmd("<Right>"):with_noremap(),
@@ -47,6 +52,7 @@ local def_map = {
 	["c|<C-e>"] = map_cmd("<End>"):with_noremap(),
 	["c|<C-d>"] = map_cmd("<Del>"):with_noremap(),
 	["c|<C-h>"] = map_cmd("<BS>"):with_noremap(),
+	["c|<C-S-V>"] = map_cmd("<C-r>+"):with_noremap(),
 	["c|<C-t>"] = map_cmd([[<C-R>=expand("%:p:h") . "/" <CR>]]):with_noremap(),
 	["c|w!!"] = map_cmd("execute 'silent! write !sudo tee % >/dev/null' <bar> edit!"),
 	-- Visual

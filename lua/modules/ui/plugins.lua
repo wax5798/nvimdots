@@ -1,69 +1,68 @@
 local ui = {}
 local conf = require("modules.ui.config")
 
-ui["kyazdani42/nvim-web-devicons"] = { opt = false }
-ui["shaunsingh/nord.nvim"] = { opt = false, config = conf.nord }
-ui["sainnhe/edge"] = { opt = false, config = conf.edge }
-ui["catppuccin/nvim"] = {
+ui["wax5798/nvim-web-devicons"] = { opt = false }
+ui["wax5798/nord.nvim"] = { opt = false, config = conf.nord }
+ui["wax5798/catppuccin"] = {
 	opt = false,
 	as = "catppuccin",
 	config = conf.catppuccin,
 }
-ui["rcarriga/nvim-notify"] = {
+ui["wax5798/nvim-notify"] = {
 	opt = false,
 	config = conf.notify,
 }
-ui["hoob3rt/lualine.nvim"] = {
+ui["wax5798/lualine.nvim"] = {
 	opt = true,
 	after = { "nvim-navic" },
 	config = conf.lualine,
 }
-ui["SmiteshP/nvim-navic"] = {
+ui["wax5798/nvim-navic"] = {
 	opt = true,
 	after = "nvim-lspconfig",
 	config = conf.nvim_navic,
 }
-ui["goolord/alpha-nvim"] = {
+ui["wax5798/alpha-nvim"] = {
 	opt = true,
 	event = "BufWinEnter",
 	config = conf.alpha,
 }
-ui["kyazdani42/nvim-tree.lua"] = {
+ui["wax5798/nvim-tree.lua"] = {
 	opt = true,
 	cmd = { "NvimTreeToggle" },
 	config = conf.nvim_tree,
-	tag = 'nightly'
+    tag = 'nightly'
 }
-ui["lewis6991/gitsigns.nvim"] = {
+ui["wax5798/gitsigns.nvim"] = {
 	opt = true,
 	event = { "BufReadPost", "BufNewFile" },
 	config = conf.gitsigns,
-	tag = "v0.6",
+    tag = "v0.6",
 	requires = { "nvim-lua/plenary.nvim", opt = true },
 }
-ui["lukas-reineke/indent-blankline.nvim"] = {
+ui["wax5798/indent-blankline.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = conf.indent_blankline,
 }
-ui["akinsho/bufferline.nvim"] = {
+ui["wax5798/bufferline.nvim"] = {
 	opt = true,
 	tag = "*",
 	event = "BufReadPost",
 	config = conf.nvim_bufferline,
 }
-ui["dstein64/nvim-scrollview"] = {
+ui["wax5798/nvim-scrollview"] = {
 	opt = true,
 	event = { "BufReadPost" },
 	config = conf.scrollview,
 }
-ui["mbbill/undotree"] = {
+ui["wax5798/undotree"] = {
 	opt = true,
 	cmd = "UndotreeToggle",
 }
-ui["j-hui/fidget.nvim"] = {
+ui["wax5798/fidget.nvim"] = {
 	opt = true,
-	tag = "legacy",
+    tag = "legacy",
 	event = "BufReadPost",
 	config = conf.fidget,
 }

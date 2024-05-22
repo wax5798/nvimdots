@@ -1,44 +1,44 @@
 local completion = {}
 local conf = require("modules.completion.config")
 
-completion["neovim/nvim-lspconfig"] = {
+completion["wax5798/nvim-lspconfig"] = {
 	opt = true,
 	event = "BufReadPre",
 	config = conf.nvim_lsp,
 }
-completion["williamboman/mason.nvim"] = {
+completion["wax5798/mason.nvim"] = {
 	requires = {
 		{
-			"williamboman/mason-lspconfig.nvim",
+			"wax5798/mason-lspconfig.nvim",
 		},
 	},
 }
-completion["nvimdev/lspsaga.nvim"] = {
+completion["wax5798/lspsaga.nvim"] = {
     opt = true,
     tag = "v0.2.9",
     event = "LspAttach",
     requires = {
-        {"nvim-tree/nvim-web-devicons"},
+        {"wax5798/nvim-web-devicons"},
         --make sure you install markdown and markdown_inline parser
-        {"nvim-treesitter/nvim-treesitter"}
+        {"wax5798/nvim-treesitter"}
     },
 	after = "nvim-lspconfig",
 	config = conf.lspsaga,
 }
-completion["ray-x/lsp_signature.nvim"] = { opt = true, after = "nvim-lspconfig" }
-completion["hrsh7th/nvim-cmp"] = {
+completion["wax5798/lsp_signature.nvim"] = { opt = true, after = "nvim-lspconfig" }
+completion["wax5798/nvim-cmp"] = {
 	config = conf.cmp,
 	event = "InsertEnter",
 	requires = {
-		{ "lukas-reineke/cmp-under-comparator" },
-		{ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
-		{ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
-		{ "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
-		{ "andersevenrud/cmp-tmux", after = "cmp-nvim-lua" },
-		{ "hrsh7th/cmp-path", after = "cmp-tmux" },
-		{ "f3fora/cmp-spell", after = "cmp-path" },
-		{ "hrsh7th/cmp-buffer", after = "cmp-spell" },
-		{ "kdheepak/cmp-latex-symbols", after = "cmp-buffer" },
+		{ "wax5798/cmp-under-comparator" },
+		{ "wax5798/cmp_luasnip", after = "LuaSnip" },
+		{ "wax5798/cmp-nvim-lsp", after = "cmp_luasnip" },
+		{ "wax5798/cmp-nvim-lua", after = "cmp-nvim-lsp" },
+		{ "wax5798/cmp-tmux", after = "cmp-nvim-lua" },
+		{ "wax5798/cmp-path", after = "cmp-tmux" },
+		{ "wax5798/cmp-spell", after = "cmp-path" },
+		{ "wax5798/cmp-buffer", after = "cmp-spell" },
+		{ "wax5798/cmp-latex-symbols", after = "cmp-buffer" },
 		-- {
 		-- 	"tzachar/cmp-tabnine",
 		-- 	run = "./install.sh",
@@ -47,28 +47,15 @@ completion["hrsh7th/nvim-cmp"] = {
 		-- },
 	},
 }
-completion["L3MON4D3/LuaSnip"] = {
+completion["wax5798/LuaSnip"] = {
 	after = "nvim-cmp",
 	config = conf.luasnip,
-	requires = "rafamadriz/friendly-snippets",
+	requires = "wax5798/friendly-snippets",
 }
-completion["windwp/nvim-autopairs"] = {
+completion["wax5798/nvim-autopairs"] = {
 	after = "nvim-cmp",
 	config = conf.autopairs,
 }
-completion["github/copilot.vim"] = { opt = true, cmd = "Copilot" }
-
---[[
-completion["hrsh7th/nvim-cmp"] = {
-	config = conf.cmp,
-	requires = {
-		{ "lukas-reineke/cmp-under-comparator" },
-		-- { "hrsh7th/cmp-nvim-lsp"},
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-	},
-}
---]]
-
+completion["wax5798/copilot.vim"] = { opt = true, cmd = "Copilot" }
 
 return completion

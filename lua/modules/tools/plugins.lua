@@ -1,55 +1,55 @@
 local tools = {}
 local conf = require("modules.tools.config")
 
-tools["nvim-lua/plenary.nvim"] = { opt = false }
-tools["nvim-telescope/telescope.nvim"] = {
+tools["wax5798/plenary.nvim"] = { opt = false }
+tools["wax5798/telescope.nvim"] = {
 	opt = true,
 	module = "telescope",
 	cmd = "Telescope",
 	config = conf.telescope,
 	requires = {
-		{ "nvim-lua/plenary.nvim", opt = false },
-		{ "nvim-lua/popup.nvim", opt = true },
+		{ "wax5798/plenary.nvim", opt = false },
+		{ "wax5798/popup.nvim", opt = true },
 	},
 }
-tools["nvim-telescope/telescope-fzf-native.nvim"] = {
+tools["wax5798/telescope-fzf-native.nvim"] = {
 	opt = true,
 	run = "make",
 	after = "telescope.nvim",
 }
-tools["nvim-telescope/telescope-project.nvim"] = {
+tools["wax5798/telescope-project.nvim"] = {
 	opt = true,
 	after = "telescope-fzf-native.nvim",
 }
-tools["nvim-telescope/telescope-frecency.nvim"] = {
+tools["wax5798/telescope-frecency.nvim"] = {
 	opt = true,
 	after = "telescope-project.nvim",
-	requires = { { "kkharji/sqlite.lua", opt = true } },
+	requires = { { "wax5798/sqlite.lua", opt = true } },
 }
-tools["jvgrootveld/telescope-zoxide"] = { opt = true, after = "telescope-frecency.nvim" }
-tools["michaelb/sniprun"] = {
+tools["wax5798/telescope-zoxide"] = { opt = true, after = "telescope-frecency.nvim" }
+tools["wax5798/sniprun"] = {
 	opt = true,
 	run = "bash ./install.sh",
 	cmd = { "SnipRun", "'<,'>SnipRun" },
 }
-tools["folke/which-key.nvim"] = {
+tools["wax5798/which-key.nvim"] = {
 	opt = true,
 	keys = ",",
 	config = conf.which_key,
 }
-tools["folke/trouble.nvim"] = {
+tools["wax5798/trouble.nvim"] = {
 	opt = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
 	config = conf.trouble,
 }
-tools["dstein64/vim-startuptime"] = { opt = true, cmd = "StartupTime" }
-tools["gelguy/wilder.nvim"] = {
+tools["wax5798/vim-startuptime"] = { opt = true, cmd = "StartupTime" }
+tools["wax5798/wilder.nvim"] = {
 	event = "CmdlineEnter",
 	config = conf.wilder,
-	requires = { { "romgrk/fzy-lua-native", after = "wilder.nvim" } },
+	requires = { { "wax5798/fzy-lua-native", after = "wilder.nvim" } },
 }
 --[[
-tools["nathom/filetype.nvim"] = {
+tools["wax5798/filetype.nvim"] = {
 	opt = false,
 	config = conf.filetype,
 }
